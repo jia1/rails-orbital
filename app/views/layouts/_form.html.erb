@@ -1,0 +1,16 @@
+<% if this_student.errors.any? %>
+  <% this_student.errors.full_messages.each do | msg | %>
+    <%= msg %>
+  <% end %>
+<% end %>
+
+<%= form_for(this_student) do |f| %>
+  <p>Name: <%= f.text_field :name %></p>
+  <p>Year: <%= f.text_field :year_of_study %></p>
+  <p>ID: <%= f.text_field :matric_number %></p>
+  <p><%= f.submit %></p>
+<% end %>
+
+<%= link_to 'Back to Students', students_path %>
+<%= link_to 'Home', my_welcome_path %>
+<%= link_to 'Home', { controller: 'pages', action: 'welcome' } %>

@@ -1,0 +1,20 @@
+<div class="jumbotron text-center">
+	<h1>Students#index</h1>
+</div>
+<p>Find me in app/views/students/index.html.erb</p>
+
+<p>
+	<% @students.each do |stu| %>
+	  <p>Name: <%= stu.name %></p>
+	  <p>Year: <%= stu.year_of_study %></p>
+	  <p>
+		  <%= link_to 'Read', { action: 'show', id: stu } %>
+		  <%= link_to 'Update', { action: 'edit', id: stu } %>
+		  <%= link_to 'Delete', { action: 'destroy', id: stu }, 
+		      :method => :delete, data: { confirm: 'Really?' } %>
+    </p>
+	<% end %>
+</p>
+
+<%= link_to 'Add New Student', new_student_path %>
+<%= link_to 'Add New Student', { action: 'new' } %>
